@@ -1,17 +1,17 @@
 import mongoose from "mongoose";
 
-const exampleSchema = new mongoose.Schema({
-  value1: {
+const heartSchema = new mongoose.Schema({
+  hrvalues: {
     type: Number,
     required: true,
   },
-  date: {
+  dates: {
     type: Date,
     default: Date.now,
   },
   user: { type: String, required: true },
 });
 
-const EndPoint = mongoose.model("EndPoint", exampleSchema);
+const HeartRate = mongoose.model("HeartRate", heartSchema);
 
-export default EndPoint;
+export default HeartRate;

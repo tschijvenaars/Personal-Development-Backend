@@ -1,7 +1,9 @@
 import user from "./user";
-import endpoint from "./endpoint";
+import health from "./health";
+import weather from "./weather";
 
 export default {
   user,
-  endpoint,
+  health,
+  weather,
 };

@@ -20,7 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 // * Routes * //
 
 app.use("/api", routes.user);
-app.use("/api/endpoint", routes.endpoint);
+app.use("/api/health", routes.health);
+app.use("/api/weather", routes.weather);
 
 // * Start * //
 
@@ -30,7 +31,10 @@ connectDb().then(async () => {
   if (eraseDatabaseOnSync) {
     await Promise.all([
       models.User.deleteMany({}),
-      models.EndPoint.deleteMany({}),
+      models.Weather.deleteMany({}),
+      models.BloodPressure.deleteMany({}),
+      models.HeartRate.deleteMany({}),
+      models.Weight.deleteMany({}),
     ]);
   }
 

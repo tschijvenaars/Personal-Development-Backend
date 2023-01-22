@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
 
 import User from "./user";
-import EndPoint from "./endpoint";
+import Weight from "./weight";
+import HeartRate from "./heartrate";
+import BloodPressure from "./bloodpressure";
+import Weather from "./weather";
 
 const connectDb = () => {
   mongoose.set("useCreateIndex", true);
@@ -11,7 +14,7 @@ const connectDb = () => {
   });
 };
 
-const models = { User, EndPoint };
+const models = { User, BloodPressure, HeartRate, Weight, Weather };
 
 export { connectDb };
 
