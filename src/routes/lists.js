@@ -9,84 +9,83 @@ router.use(verifyToken);
 // ToDoList GET, GET id, POST, DELETE
 
 router.get("/todolist", async (req, res) => {
-    try {
-        const todoList = await models.TodoItem.find();
-        return res.json(todoList);
-    } catch (err) {
-        return res.send(err);
-    }
+  try {
+    const todoList = await models.TodoItem.find();
+    return res.json(todoList);
+  } catch (err) {
+    return res.send(err);
+  }
 });
 
 router.post("/todolist", async (req, res) => {
-    try {
-        const todoItem = await models.TodoItem.create({
-            shortDescription: req.body.shortDescription,
-            longDescription: req.body.longDescription,
-            date: req.body.date,
-        });
+  try {
+    const todo = await models.TodoItem.create({
+      shortDescription: req.body.shortDescription,
+      longDescription: req.body.longDescription,
+      date: req.body.date,
+    });
 
-        return res.json(todo);
-    } catch (err) {
-        return res.send(err);
-    }
+    return res.json(todo);
+  } catch (err) {
+    return res.send(err);
+  }
 });
 
 router.delete("/todolist/:todolistid", async (req, res) => {
-    try {
-        const todoItem = await models.TodoItem.findById(req.params.todolistid);
+  try {
+    const todo = await models.TodoItem.findById(req.params.todolistid);
 
-        let result = null;
-        if (todoItem) {
-            result = await todoItem.remove();
-        } else {
-            return res.send("No item found");
-        }
-
-        return res.json(result);
-    } catch (err) {
-        return res.send(err);
+    let result = null;
+    if (todo) {
+      result = await todo.remove();
+    } else {
+      return res.send("No item found");
     }
+
+    return res.json(result);
+  } catch (err) {
+    return res.send(err);
+  }
 });
 
 // WishList GET, GET id, POST, DELETE
 
 router.get("/wishlist", async (req, res) => {
-    try {
-        const heartrate = await models.HeartRate.find();
-        return res.json(heartrate);
-    } catch (err) {
-        return res.send(err);
-    }
+  try {
+    const wishList = await models.WishItem.find();
+    return res.json(wishList);
+  } catch (err) {
+    return res.send(err);
+  }
 });
 
-router.post("/bloodpressure", async (req, res) => {
-    try {
-        const bloodpressure = await models.BloodPressure.create({
-            bpvalue: req.body.bpvalue,
-            date: req.body.date,
-        });
+router.post("/wishlist", async (req, res) => {
+  try {
+    const wish = await models.WishItem.create({
+      shortDescription: req.body.shortDescription,
+      longDescription: req.body.longDescription,
+      date: req.body.date,
+    });
 
-        return res.json(bloodpressure);
-    } catch (err) {
-        return res.send(err);
-    }
+    return res.json(wish);
+  } catch (err) {
+    return res.send(err);
+  }
 });
 
-router.delete("/bloodpressure/:bloodpressureid", async (req, res) => {
-    try {
-        const bloodpressure = await models.BloodPressure.findById(
-            req.params.bloodpressureid
-        );
-        if (heartrate) {
-            result = await bloodpressure.remove();
-        } else {
-            return res.send("No item found");
-        }
-
-        return res.json(result);
-    } catch (err) {
-        return res.send(err);
+router.delete("/wishlist/:wishlistid", async (req, res) => {
+  try {
+    const wish = await models.WishItem.findById(req.params.wishlistid);
+    if (wish) {
+      result = await wish.remove();
+    } else {
+      return res.send("No item found");
     }
+
+    return res.json(result);
+  } catch (err) {
+    return res.send(err);
+  }
 });
 
 export default router;
