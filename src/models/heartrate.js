@@ -9,7 +9,6 @@ const heartSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  user: { type: String, required: true },
 });
 
 const HeartRate = mongoose.model("HeartRate", heartSchema);

@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 // * Routes * //
 
 app.use("/api", routes.user);
+app.use("/api/lists", routes.lists)
 app.use("/api/health", routes.health);
 app.use("/api/weather", routes.weather);
 
@@ -35,6 +36,8 @@ connectDb().then(async () => {
       models.BloodPressure.deleteMany({}),
       models.HeartRate.deleteMany({}),
       models.Weight.deleteMany({}),
+      models.WishItem.deleteMany({}),
+      models.TodoItems.deleteMany({}),
     ]);
   }
 

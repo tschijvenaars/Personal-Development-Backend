@@ -17,23 +17,22 @@ router.get("/heartrate", async (req, res) => {
   }
 });
 
-router.get("/heartrate/:heartrateuser", async (req, res) => {
-  try {
-    const heartrate = await models.HeartRate.findOne({
-      user: req.params.heartrateuser,
-    });
-    return res.json(heartrate);
-  } catch (err) {
-    return res.send(err);
-  }
-});
+// router.get("/heartrate/:heartrateuser", async (req, res) => {
+//   try {
+//     const heartrate = await models.HeartRate.findOne({
+//       user: req.params.heartrateuser,
+//     });
+//     return res.json(heartrate);
+//   } catch (err) {
+//     return res.send(err);
+//   }
+// });
 
 router.post("/heartrate", async (req, res) => {
   try {
     const heartrate = await models.HeartRate.create({
       hrvalue: req.body.hrvalue,
       date: req.body.date,
-      user: req.body.user,
     });
 
     return res.json(heartrate);
@@ -70,23 +69,12 @@ router.get("/bloodpressure", async (req, res) => {
   }
 });
 
-router.get("/bloodpressure/:bloodpressureuser", async (req, res) => {
-  try {
-    const bloodpressure = await models.BloodPressure.findOne({
-      user: req.params.bloodpressureuser,
-    });
-    return res.json(bloodpressure);
-  } catch (err) {
-    return res.send(err);
-  }
-});
 
 router.post("/bloodpressure", async (req, res) => {
   try {
     const bloodpressure = await models.BloodPressure.create({
       bpvalue: req.body.bpvalue,
       date: req.body.date,
-      user: req.body.user,
     });
 
     return res.json(bloodpressure);
@@ -123,23 +111,11 @@ router.get("/weight", async (req, res) => {
   }
 });
 
-router.get("/weight/:weightuser", async (req, res) => {
-  try {
-    const weight = await models.Weight.create({
-      user: req.params.weightuser,
-    });
-    return res.json(weight);
-  } catch (err) {
-    return res.send(err);
-  }
-});
-
 router.post("/weight", async (req, res) => {
   try {
     const weight = await models.Weight.create({
       wvalue: req.body.wvalue,
       date: req.body.date,
-      user: req.body.user,
     });
 
     return res.json(weight);

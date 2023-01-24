@@ -9,7 +9,6 @@ const weightSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  user: { type: String, required: true },
 });
 
 const Weight = mongoose.model("Weight", weightSchema);

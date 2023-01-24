@@ -5,6 +5,8 @@ import Weight from "./weight";
 import HeartRate from "./heartrate";
 import BloodPressure from "./bloodpressure";
 import Weather from "./weather";
+import WishItem from "./wishitem";
+import TodoItem from "./todoitem";
 
 const connectDb = () => {
   mongoose.set("useCreateIndex", true);
@@ -14,7 +16,7 @@ const connectDb = () => {
   });
 };
 
-const models = { User, BloodPressure, HeartRate, Weight, Weather };
+const models = { User, BloodPressure, HeartRate, Weight, Weather, WishItem, TodoItem };
 
 export { connectDb };
 
