@@ -24,6 +24,10 @@ app.use("/api/lists", routes.lists);
 app.use("/api/health", routes.health);
 app.use("/api/weather", routes.weather);
 
+app.get("/", (req, res) => {
+  res.send("Server says hi!");
+});
+
 // * Start * //
 
 const eraseDatabaseOnSync = false;
