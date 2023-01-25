@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const bloodPressureSchema = new mongoose.Schema({
-  bpvalue: {
+  value: {
     type: String,
     required: true,
   },

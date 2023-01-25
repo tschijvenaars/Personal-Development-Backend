@@ -1,13 +1,13 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const wishSchema = new mongoose.Schema({
   shortDescription: {
-    type: Number,
+    type: String,
     required: true,
   },
   longDescription: {
-    type: Number,
-    required: true,
+    type: String,
+    required: false,
   },
   date: {
     type: Date,
@@ -15,6 +15,6 @@ const wishSchema = new mongoose.Schema({
   },
 });
 
-const WishItem = mongoose.model('Weather', wishSchema);
+const WishItem = mongoose.model("WishItem", wishSchema);
 
 export default WishItem;

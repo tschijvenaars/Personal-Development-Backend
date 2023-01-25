@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const weightSchema = new mongoose.Schema({
-  wvalue: {
+  value: {
     type: Number,
     required: true,
   },

@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 const heartSchema = new mongoose.Schema({
-  hrvalues: {
+  value: {
     type: Number,
     required: true,
   },
-  dates: {
+  date: {
     type: Date,
     default: Date.now,
   },

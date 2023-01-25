@@ -31,13 +31,13 @@ router.get("/heartrate", async (req, res) => {
 router.post("/heartrate", async (req, res) => {
   try {
     const heartrate = await models.HeartRate.create({
-      hrvalue: req.body.hrvalue,
+      value: req.body.value,
       date: req.body.date,
     });
 
     return res.json(heartrate);
   } catch (err) {
-    return res.send("Error found in POSTing heartrate");
+    return res.send(err);
   }
 });
 
@@ -69,11 +69,10 @@ router.get("/bloodpressure", async (req, res) => {
   }
 });
 
-
 router.post("/bloodpressure", async (req, res) => {
   try {
     const bloodpressure = await models.BloodPressure.create({
-      bpvalue: req.body.bpvalue,
+      value: req.body.value,
       date: req.body.date,
     });
 
@@ -114,7 +113,7 @@ router.get("/weight", async (req, res) => {
 router.post("/weight", async (req, res) => {
   try {
     const weight = await models.Weight.create({
-      wvalue: req.body.wvalue,
+      value: req.body.value,
       date: req.body.date,
     });
 
