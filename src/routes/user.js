@@ -79,7 +79,7 @@ router.post("/login", async (req, res) => {
         return res.status(401).json({ message: "Token error" });
       }
     });
-  } catch (error) {
+  } catch (err) {
     res.status(401).send(err.message);
   }
 });
