@@ -1,4 +1,4 @@
-# Project Neutag
+# Project Growth
 
 It's a new day, a new start, a new platform. Built to learn the MEAN Stack, using templates from rwieruch and BLANK.
 
